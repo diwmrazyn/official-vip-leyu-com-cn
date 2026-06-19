@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://diwmrazyn.github.io/official-vip-leyu-com-cn/sitemap.xml
