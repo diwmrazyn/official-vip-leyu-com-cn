@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>杏彩体育 – 快速识别 · 轻量导航</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: linear-gradient(145deg, #fde9e3 0%, #f8d9cf 35%, #f1c5b0 65%, #e8b49a 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      color: #3e2e26;
+      line-height: 1.65;
+      padding: 1.5rem;
+    }
+
+    .wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      width: 100%;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* 顶部导航 */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 246, 237, 0.8);
+      backdrop-filter: blur(6px);
+      padding: 0.75rem 1.6rem;
+      border-radius: 60px;
+      box-shadow: 0 6px 18px rgba(160, 80, 50, 0.08);
+      margin-bottom: 2.8rem;
+    }
+
+    .logo-area {
+      font-weight: 600;
+      font-size: 1.35rem;
+      letter-spacing: 0.5px;
+      color: #7b4934;
+    }
+
+    .logo-area span {
+      background: #c27e5c;
+      color: #fff6ed;
+      border-radius: 20px;
+      padding: 0.2rem 0.9rem;
+      font-size: 0.85rem;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #4f362a;
+      font-weight: 450;
+      transition: color 0.2s, border-bottom 0.2s;
+      padding-bottom: 2px;
+      border-bottom: 2px solid transparent;
+    }
+
+    .nav-links a:hover {
+      color: #a45f3e;
+      border-bottom-color: #c27e5c;
+    }
+
+    /* Hero 区域 – 用途识别 */
+    .hero-snap {
+      text-align: left;
+      background: rgba(255, 250, 244, 0.75);
+      backdrop-filter: blur(4px);
+      padding: 2.4rem 2.8rem;
+      border-radius: 36px;
+      box-shadow: 0 18px 32px -12px rgba(130, 70, 40, 0.18);
+      margin-bottom: 3rem;
+    }
+
+    .hero-snap h1 {
+      font-size: 2.4rem;
+      font-weight: 580;
+      letter-spacing: -0.02em;
+      color: #4d2b1c;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .hero-snap .tagline {
+      font-size: 1.1rem;
+      color: #5c3d2c;
+      max-width: 600px;
+      background: rgba(194, 126, 92, 0.08);
+      padding: 0.3rem 1rem 0.3rem 1.4rem;
+      border-radius: 30px;
+      display: inline-block;
+      border-left: 4px solid #c27e5c;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-snap p {
+      font-size: 1.05rem;
+      color: #3c2a1f;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-snap .identify-highlight {
+      background: #fff1e7;
+      border-radius: 20px;
+      padding: 0.8rem 1.6rem;
+      margin-top: 1.4rem;
+      display: inline-block;
+      font-weight: 480;
+      box-shadow: 0 2px 6px rgba(190, 100, 60, 0.06);
+    }
+
+    .identify-highlight a {
+      color: #9b5a3a;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 2px dotted #dba988;
+      transition: border-color 0.2s;
+    }
+
+    .identify-highlight a:hover {
+      border-bottom-color: #9b5a3a;
+    }
+
+    /* 场景卡片 – 三个模块 */
+    .scene-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+      margin-bottom: 3.2rem;
+    }
+
+    .scene-card {
+      background: #ffffffd9;
+      backdrop-filter: blur(2px);
+      padding: 1.8rem 1.6rem 2rem;
+      border-radius: 32px;
+      box-shadow: 0 12px 24px -10px rgba(150, 80, 45, 0.12);
+      transition: transform 0.2s, box-shadow 0.25s;
+    }
+
+    .scene-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 32px -14px rgba(150, 80, 45, 0.18);
+    }
+
+    .scene-card .emoji-badge {
+      font-size: 2rem;
+      background: #f6e3d7;
+      width: 3.2rem;
+      height: 3.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 60px;
+      margin-bottom: 1rem;
+      color: #7b4934;
+    }
+
+    .scene-card h3 {
+      font-size: 1.25rem;
+      font-weight: 550;
+      margin-bottom: 0.6rem;
+      color: #3f2a1b;
+    }
+
+    .scene-card p, .scene-card ul {
+      font-size: 0.95rem;
+      color: #4b3629;
+    }
+
+    .scene-card ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 0.3rem;
+    }
+
+    .scene-card li {
+      padding: 0.25rem 0 0.25rem 1.2rem;
+      position: relative;
+    }
+
+    .scene-card li::before {
+      content: "·";
+      position: absolute;
+      left: 0;
+      color: #c27e5c;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+
+    .scene-card .tiny-link {
+      display: inline-block;
+      margin-top: 0.8rem;
+      background: #f5e6dc;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      color: #7b4934;
+    }
+
+    .scene-card .tiny-link a {
+      color: #7b4934;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .scene-card .tiny-link a:hover {
+      text-decoration: underline;
+    }
+
+    /* 常见说明 / FAQ 摘要 */
+    .faq-compact {
+      background: #fffbf7e6;
+      backdrop-filter: blur(3px);
+      padding: 2rem 2.4rem;
+      border-radius: 40px;
+      margin-bottom: 2.8rem;
+      box-shadow: 0 4px 16px rgba(150, 80, 45, 0.05);
+    }
+
+    .faq-compact h2 {
+      font-size: 1.5rem;
+      font-weight: 520;
+      color: #4d2e1d;
+      margin-bottom: 1.2rem;
+      border-left: 6px solid #c27e5c;
+      padding-left: 1rem;
+    }
+
+    .faq-item {
+      margin-bottom: 0.9rem;
+    }
+
+    .faq-item strong {
+      color: #6a412d;
+      font-weight: 550;
+      display: block;
+      margin-bottom: 0.1rem;
+    }
+
+    .faq-item p {
+      color: #4d372b;
+      font-size: 0.98rem;
+      margin-left: 0.2rem;
+    }
+
+    .faq-item a {
+      color: #9b5a3a;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: #cfaa93;
+      font-weight: 470;
+    }
+
+    .faq-item a:hover {
+      color: #6f412b;
+    }
+
+    /* 底部 */
+    .footer-note {
+      margin-top: auto;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #6e4f3b;
+      padding: 1.2rem 0 0.2rem;
+      border-top: 1px solid #e2c5b4;
+      opacity: 0.8;
+    }
+
+    .footer-note a {
+      color: #7b4934;
+      text-decoration: none;
+      font-weight: 480;
+      border-bottom: 1px dotted #b28468;
+    }
+
+    /* 响应式 */
+    @media (max-width: 820px) {
+      .scene-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .hero-snap h1 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 1rem;
+      }
+      .top-nav {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.6rem;
+        border-radius: 30px;
+        padding: 0.8rem 1.2rem;
+      }
+      .nav-links {
+        justify-content: center;
+        gap: 1.2rem;
+        flex-wrap: wrap;
+        font-size: 0.9rem;
+      }
+      .scene-grid {
+        grid-template-columns: 1fr;
+        gap: 1.4rem;
+      }
+      .hero-snap {
+        padding: 1.8rem 1.5rem;
+      }
+      .faq-compact {
+        padding: 1.6rem 1.4rem;
+      }
+      .hero-snap h1 {
+        font-size: 1.7rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .nav-links {
+        gap: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <!-- 顶部导航 -->
+  <div class="top-nav">
+    <div class="logo-area">
+      🏀 杏彩·向导
+      <span>quick</span>
+    </div>
+    <div class="nav-links">
+      <a href="#identify">用途识别</a>
+      <a href="#scenes">场景</a>
+      <a href="#faq">说明</a>
+    </div>
+  </div>
+
+  <!-- Hero / 核心介绍 + 快速识别 -->
+  <div class="hero-snap" id="identify">
+    <h1>一眼看懂<br>杏彩体育是什么</h1>
+    <div class="tagline">· 从用户视角快速定位用途 ·</div>
+    <p>许多人第一次看到 <a href="https://main-xingcaisports.com" style="color:#9b5a3a; font-weight:500; text-decoration:none; border-bottom:2px solid #dba988;">杏彩体育</a> 这个名字，会好奇它提供什么。</p>
+    <p>简单说 —— 这是一个围绕体育与休闲内容而设计的平台，聚合了资讯、互动和基础服务。没有复杂包装，只有清晰的功能分区。</p>
+    <div class="identify-highlight">
+      <span>🔍 想立刻确认？直接看看 <a href="https://main-xingcaisports.com">杏彩体育</a> 的页面布局，三分钟内就能判断是否适合你。</span>
+    </div>
+  </div>
+
+  <!-- 三个场景模块 -->
+  <div class="scene-grid" id="scenes">
+    <div class="scene-card">
+      <div class="emoji-badge">🏟️</div>
+      <h3>日常浏览 · 资讯场景</h3>
+      <p>如果你习惯在碎片时间刷刷体育动态、赛果或相关话题，这里的信息聚合方式比较直接，没有多余干扰。</p>
+      <ul>
+        <li>热门赛事简讯</li>
+        <li>分类内容入口</li>
+        <li>快速切换模块</li>
+      </ul>
+      <div class="tiny-link">🔗 相关：<a href="https://main-xingcaisports.com">杏彩体育</a></div>
+    </div>
+
+    <div class="scene-card">
+      <div class="emoji-badge">🧩</div>
+      <h3>功能探索 · 轻互动</h3>
+      <p>除了浏览，平台也提供一些基础互动功能，适合想简单参与、查询或标记感兴趣内容的用户。</p>
+      <ul>
+        <li>个人关注列表</li>
+        <li>内容筛选与排序</li>
+        <li>界面风格统一</li>
+      </ul>
+      <div class="tiny-link">📌 功能入口来自 <a href="https://main-xingcaisports.com">杏彩体育</a></div>
+    </div>
+
+    <div class="scene-card">
+      <div class="emoji-badge">📋</div>
+      <h3>信息参考 · 辅助判断</h3>
+      <p>很多用户把这里当作一个参考渠道，了解某项活动、赛事或服务的基本框架，再做自己的决定。</p>
+      <ul>
+        <li>结构清晰的导航</li>
+        <li>常见分类归纳</li>
+        <li>无强制注册门槛</li>
+      </ul>
+      <div class="tiny-link">🔎 更多细节在 <a href="https://main-xingcaisports.com">杏彩体育</a></div>
+    </div>
+  </div>
+
+  <!-- 常见说明 FAQ 摘要 -->
+  <div class="faq-compact" id="faq">
+    <h2>常见说明 · 几句讲清楚</h2>
+
+    <div class="faq-item">
+      <strong>❓ 这个网站主要是做什么的？</strong>
+      <p><a href="https://main-xingcaisports.com">杏彩体育</a> 是一个内容与轻服务结合的平台，面向体育和休闲信息需求，没有夸张包装，功能直接展示在页面上。</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>❓ 是否需要注册才能浏览？</strong>
+      <p>大部分内容公开可见，你可以自由浏览导航中的各个分区。部分个性化功能可能需要简单注册，平台会明确提示。</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>❓ 信息更新频率怎么样？</strong>
+      <p>内容根据常规节奏更新，热门赛事或话题期间会有相应调整。建议直接收藏 <a href="https://main-xingcaisports.com">杏彩体育</a> 随时查看。</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>❓ 移动端体验如何？</strong>
+      <p>页面采用自适应设计，手机和平板都可以正常使用，菜单和卡片会重新排列，保持基本可用性。</p>
+    </div>
+  </div>
+
+  <!-- 底部 -->
+  <div class="footer-note">
+    <span>基于实际用途介绍 · 内容仅供参考 · <a href="https://main-xingcaisports.com">杏彩体育</a></span>
+  </div>
+</div>
+</body>
+</html>
