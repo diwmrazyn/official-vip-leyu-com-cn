@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>竞技宝 · 稳定入口与平台说明</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #fafafa;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1e1e1e;
+      line-height: 1.6;
+      padding: 0 1.25rem;
+    }
+
+    .page {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 0 2rem;
+    }
+
+    /* —— hero —— */
+    .hero {
+      padding: 2rem 0 2.5rem;
+      border-bottom: 1px solid #eaeef2;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+      color: #0d1b2a;
+    }
+
+    .hero .sub {
+      font-size: 1.1rem;
+      color: #3c4a5a;
+      max-width: 640px;
+      margin-top: 0.25rem;
+    }
+
+    .hero .sub a {
+      color: #1a5c8a;
+      text-decoration: none;
+      border-bottom: 1px solid #bdd3e5;
+      font-weight: 450;
+    }
+
+    .hero .sub a:hover {
+      color: #0a3b5c;
+      border-bottom-color: #1a5c8a;
+    }
+
+    /* —— sections —— */
+    section {
+      padding: 2.5rem 0;
+      border-bottom: 1px solid #eaedf0;
+    }
+
+    section:last-of-type {
+      border-bottom: none;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 1.2rem;
+      color: #0d1b2a;
+      letter-spacing: -0.01em;
+      border-left: 4px solid #1a5c8a;
+      padding-left: 1rem;
+    }
+
+    p, li {
+      color: #2a3a4a;
+      font-size: 1rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 1.2rem 0 0.8rem;
+    }
+
+    li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.6rem;
+    }
+
+    li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #1a5c8a;
+      font-weight: 300;
+    }
+
+    .feature-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      margin: 1.25rem 0 0.25rem;
+    }
+
+    .feature-item {
+      flex: 1 1 200px;
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 1.25rem 1.25rem 1.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 2px 6px rgba(0,0,0,0.02);
+      transition: box-shadow 0.2s ease;
+    }
+
+    .feature-item:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04), 0 6px 18px rgba(26,92,138,0.04);
+    }
+
+    .feature-item h3 {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: #0d1b2a;
+      margin-bottom: 0.4rem;
+    }
+
+    .feature-item p {
+      font-size: 0.92rem;
+      color: #3a4e62;
+      margin-bottom: 0;
+    }
+
+    .faq-block {
+      margin: 1.5rem 0 0.2rem;
+    }
+
+    .faq-q {
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+      color: #0d1b2a;
+    }
+
+    .faq-a {
+      padding-left: 0.25rem;
+      margin-bottom: 1.4rem;
+      color: #2e4052;
+    }
+
+    .faq-a:last-child {
+      margin-bottom: 0.4rem;
+    }
+
+    .faq-a a {
+      color: #1a5c8a;
+      text-decoration: none;
+      border-bottom: 1px solid #c9dae9;
+    }
+
+    .faq-a a:hover {
+      color: #0a3b5c;
+    }
+
+    /* —— footer —— */
+    .bottom-links {
+      padding: 2.2rem 0 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      border-top: 1px solid #eaedf0;
+      margin-top: 0.25rem;
+    }
+
+    .bottom-links a {
+      color: #2a4a66;
+      text-decoration: none;
+      font-size: 0.95rem;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .bottom-links a:hover {
+      border-bottom-color: #1a5c8a;
+      color: #0d1b2a;
+    }
+
+    .footnote {
+      font-size: 0.82rem;
+      color: #6b7f8f;
+      padding-top: 1.8rem;
+      border-top: 1px solid #eaedf0;
+      margin-top: 0.5rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #eceff2;
+      margin: 1.5rem 0;
+    }
+
+    /* —— responsive —— */
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .hero .sub {
+        font-size: 1rem;
+      }
+      h2 {
+        font-size: 1.25rem;
+        padding-left: 0.75rem;
+      }
+      .feature-grid {
+        gap: 1rem;
+      }
+      .feature-item {
+        flex: 1 1 100%;
+      }
+      .bottom-links {
+        gap: 1.2rem;
+      }
+      .page {
+        padding: 1.8rem 0 1rem;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .feature-item {
+        flex: 1 1 180px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- hero -->
+    <div class="hero">
+      <h1>竞技宝 · 稳定的访问入口</h1>
+      <div class="sub">
+        一个可以直接打开的页面，不绕路、不跳转。如果你需要了解 <a href="https://asia-jjbdianjing.com">竞技宝</a> 的界面与基本功能，这里整理了最常用的说明。
+      </div>
+    </div>
+
+    <!-- 优势区：简洁卡片 -->
+    <section>
+      <h2>为什么把它当作稳定入口</h2>
+      <div class="feature-grid">
+        <div class="feature-item">
+          <h3>直达不变</h3>
+          <p>域名固定，无额外中间页。无论何时打开，始终指向同一位置，减少记忆负担。</p>
+        </div>
+        <div class="feature-item">
+          <h3>轻量说明</h3>
+          <p>页面只做介绍与指引，不堆砌复杂模块，加载快，适合移动端与桌面端。</p>
+        </div>
+        <div class="feature-item">
+          <h3>关键信息集中</h3>
+          <p>从平台特色到常见疑问，都在同一页，不用四处翻找。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 说明区：详细但克制 -->
+    <section>
+      <h2>关于竞技宝的页面说明</h2>
+      <p><a href="https://asia-jjbdianjing.com">竞技宝</a> 是一个综合性的线上服务平台，提供多种功能模块供用户浏览与使用。本介绍页旨在帮助新接触的用户快速了解平台结构，包括信息展示逻辑、常用分区以及服务范畴。</p>
+      <p>所有内容均基于公开信息整理，不涉及任何形式的预测、承诺或诱导。如果你正在寻找一个可以直接打开的地址作为固定参考点，这个页面可以作为入口之一。</p>
+      <ul>
+        <li>平台界面适配主流浏览器与设备，无需额外配置。</li>
+        <li>信息更新节奏稳定，主要栏目保持长期可用。</li>
+        <li>无强制弹窗或引导式跳转，访问路径清晰。</li>
+      </ul>
+    </section>
+
+    <!-- FAQ 摘要 -->
+    <section>
+      <h2>常见疑问 · 摘要</h2>
+      <div class="faq-block">
+        <div class="faq-q">Q：打开后显示什么内容？</div>
+        <div class="faq-a">通常展示平台首页的核心导航与简介。如果遇到加载延迟，建议检查网络环境或稍后重试，无需反复刷新。</div>
+
+        <div class="faq-q">Q：是否需要注册才能浏览？</div>
+        <div class="faq-a">大部分公开页面可以直接查看，无需登录。部分功能区块可能需要账户参与，属于正常的产品设计，并非强制限制。</div>
+
+        <div class="faq-q">Q：这个页面与官方有什么关系？</div>
+        <div class="faq-a">本页是一个独立的介绍页，指向 <a href="https://asia-jjbdianjing.com">竞技宝</a> 平台，内容基于平台公开特征整理，方便快速了解。官方具体条款与规则请以平台内公示为准。</div>
+      </div>
+    </section>
+
+    <!-- 底部链接组 + 提示 -->
+    <div class="bottom-links">
+      <a href="#">使用指引</a>
+      <a href="#">常见问题</a>
+      <a href="#">平台动态</a>
+      <a href="#">联系方式</a>
+    </div>
+
+    <div class="footnote">
+      本页面仅作信息展示与导航用途，不构成任何形式的推荐或引导。所有操作请以用户自身判断为准。
+    </div>
+
+  </div>
+</body>
+</html>
